@@ -1,0 +1,4 @@
+Sources
+-------
+
+http://code.google.com/apis/spreadsheets/data/1.0/developers_guide_python.html
