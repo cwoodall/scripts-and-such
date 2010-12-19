@@ -12,6 +12,14 @@ import gdata.docs
 import gdata.docs.service
 import gdata.service
 import gdata.spreadsheet.service
+import csv
+
+# set the metadata for the program connecting to the google docs server
+company = 'onethirtybpm'
+app = 'listcruncher'
+version = 'v1'
+# Produce the source_string/application name sent to google for connection
+application = company + '-' + app + '-' + version
 
 # Print feed information to the console
 def PrintFeed(feed):
@@ -24,13 +32,6 @@ def PrintFeed(feed):
 
 
 def main():
-	# set the metadata for the program connecting to the google docs server
-	company = 'onethirtybpm'
-	app = 'listcruncher'
-	version = 'v1'
-	# Produce the source_string/application name sent to google for connection
-	application = company + '-' + app + '-' + version
-	
 	# Input
 	email = raw_input("Email: ")
 	password = raw_input("Password: ")
@@ -73,10 +74,12 @@ def main():
 	docs_auth_token = gd_client.GetClientLoginToken()
 	gd_client.SetClientLoginToken(spreadsheets_client.GetClientLoginToken())
 	
-	## download spreadsheet
+	# download spreadsheet
 	for entry in feed.entry:
 		gd_client.Export(entry, file_path, gid=0)
 		print "Downloading spreadsheet to %s" % (file_path)
+	
+	# add in functionality to work with csv
 		
 if __name__ == '__main__':
 	main()
