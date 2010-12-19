@@ -35,9 +35,6 @@ def main():
 	email = raw_input("Email: ")
 	password = raw_input("Password: ")
 	
-	# -DEPRECIATED: silly because function is  a oneliner. Just include
-#	gd_client = SetupClient(email, password, application) # initialize gd_client
-		
 	# Initialize DocService class on client gd_client
 	gd_client = gdata.docs.service.DocsService(source=application)
 	spreadsheets_client = gdata.spreadsheet.service.SpreadsheetsService()
@@ -76,6 +73,7 @@ def main():
 	docs_auth_token = gd_client.GetClientLoginToken()
 	gd_client.SetClientLoginToken(spreadsheets_client.GetClientLoginToken())
 	
+	## download spreadsheet
 	for entry in feed.entry:
 		gd_client.Export(entry, file_path, gid=0)
 		print "Downloading spreadsheet to %s" % (file_path)
