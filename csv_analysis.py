@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import csv
+from operator import itemgetter
 
 ## CURENT STATUS: FAIL
 class Album(object):
@@ -19,18 +20,37 @@ class Voter(object):
 		
 if __name__ == '__main__':
 	reader = csv.reader(open("test.csv", "rb"))
+	voter_list = []
 	album_list = {}
 	reader.next()
 	for row in reader:
-#		voter = Voter(row[2], row[1], row[3:])
-#		print "Name: " + voter.name
-#		print "Multiplier: " + voter.multiplier
-#		print "Votes: ",
-		for album in row[3:]:
-			a = True
-			for i, v in album_list.iteritems():
-				if i.find('The National') == -1:
-					a = False
-			if a == True:
-				album_list.update({album: 0})
-	print album_list
+		voter = Voter(row[2], row[1], row[3:])		
+		voter_list.append(voter)
+	for voter in voter_list:
+		vote_score = 50
+		for album in voter.albums:
+			album = album.replace('\xe2\x80\x93', '-')
+			album = album.replace('?', '')
+			album = album.replace('Beatiful', 'Beautiful')
+			album = album.replace('\t', '')
+			album = album.replace('Deehunter', 'Deerhunter')
+			album = album.replace('The', '')
+			album = album.replace('  ', ' ')
+			album = album.replace('Monae, Janelle', 'Janelle Monae' )
+			album = album.title()
+			album = album.split(':')[0]
+			album = album.rstrip()	
+			album = album.lstrip()		
+#			album = album.replace(' ','')
+			
+			if album:
+				try:
+					album_list[album] = int(album_list[album] + (int(voter.multiplier) * int(vote_score)))
+				except:
+					album_list[album] = int(voter.multiplier) * int(vote_score)
+			vote_score -= 1
+	
+	print "Votes | Album"
+	print "------|-------------------------------------------------------------"		
+	for album in sorted(album_list.items(), key=itemgetter(1)):
+		print "%5s | %s" % (album[1], album[0])
