@@ -1,0 +1,1 @@
+Currently the list_cruncher file only connects to google spreadsheet and the csv_analysis.py file only calculates the vote score from a csv file (then sorts and prints it). I am planning to make them work together, but first I need to document and clean both of the files up
