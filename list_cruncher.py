@@ -15,7 +15,7 @@ import gdata.spreadsheet.service
 import csv
 
 # set the metadata for the program connecting to the google docs server
-company = 'onethirtybpm'
+company = 'happyrobotlabs'
 app = 'listcruncher'
 version = 'v1'
 # Produce the source_string/application name sent to google for connection
