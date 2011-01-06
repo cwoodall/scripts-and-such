@@ -5,6 +5,8 @@
 #		   rankings (and any other ranking).
 # Date: January 5, 2011
 #
+# Use: python vote_counter.py [options]
+#
 # Developer: Christopher Woodall <chris.j.woodall at gmail.com>
 # Copyright: Apache License 2.0
 ##
@@ -27,7 +29,8 @@ def generateAlbums(voters):
 	albums = {} # Dictionary in the format {"Album Title": number_of_votes}
 	# Populate album_list
 	for voter in voters:
-		for (score, album) in enumerate(reversed(voter.albums)):
+		score = 50
+		for album in voter.albums:
 			album = filterAlbumString(album, filters)
 			
 			# If the album is not a blank string then try to add it to album_list
@@ -38,26 +41,43 @@ def generateAlbums(voters):
 					albums[album] = int(albums[album]) + int(voter.multiplier) * int(score)
 				except:
 					albums[album] = int(voter.multiplier) * int(score)						
+			score -= 1
 	return albums
 
 def main():
+	# Handle commandline arguments and options
 	parser = OptionParser()
-	parser.add_option("-f", "--file", dest="filename", default="./test.csv",
+	parser.add_option("-f", "--file", dest="filename", default="",
 		help="The location of the csv file", metavar="FILE")
-	(options, args) = parse.parse_args()
+	parser.add_option("-o", "--output", dest="outputname", default="",
+		help="The location of the output file", metavar="OUTPUT")
+	parser.add_option("-q", "--quiet", action="store_false", dest="verbose", 
+		default=True, help="Dont't print the results to stdout")
+	(options, args) = parser.parse_args()
 	
-	reader = csv.reader(open(options.filename, "rb")) # import the csv file
+	if options.filename:
+		reader = csv.reader(open(options.filename, "rb")) # import the csv file
+	else:
+		print "For help: $ python vote_counter.py -h"
+		exit()
+		
 	reader.next() # Skip the header information in the csv file
 
 	voters = [Voter(row[2], row[1], row[3:]) for row in reader]
 	albums = generateAlbums(voters)
 	
 	# Print out a sorted table of votes and albums
-	print "Votes | Album"
-	print "------|-------------------------------------------------------------"		
+	album_table = "Votes | Album\n"
+	album_table += "------|-----------------------------------------------------------\n"		
 	# sort and reverse list for easier reading
 	for album in reversed(sorted(albums.items(), key=itemgetter(1))):
-		print "%5s | %s" % (album[1], album[0])			
-			
+		album_table += "%5s | %s\n" % (album[1], album[0])			
+	
+	if options.outputname:
+		open(options.outputname, 'w').write(album_table)
+	
+	if options.verbose:
+		print album_table
+	
 if __name__ == '__main__':
 	main()
