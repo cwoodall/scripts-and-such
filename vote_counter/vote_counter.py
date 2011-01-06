@@ -18,6 +18,8 @@ import sys
 # Filters
 from vote_filters import *
 
+__author__ = "Christopher Woodall"
+__version__ = "1.0b"
 class Voter(object):
 	'''Assigns a voter with his albums and multiplier'''
 	def __init__(self, name, multiplier, albums):

@@ -3,7 +3,7 @@
 **Language:** Python  
 **Purpose:** To calculate a sorted list of album rankings for 130BPM's year-end
 rankings (and any other ranking).
-**Status:** Working  
+**Status:** Done  
 **Version:** .5  
 
 ## Use of vote_counter.py
