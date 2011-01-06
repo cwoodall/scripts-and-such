@@ -12,14 +12,14 @@ rankings (and any other ranking).
 
 ## Use of vote_counter.py
 
->	Usage: vote_counter.py [options]  
->  
->	Options:  
-> 		-h, --help            show this help message and exit  
->		-f FILE, --file=FILE  The location of the csv file  
->  		-o OUTPUT, --output=OUTPUT  
->                        	  The location of the output file  
->  		-q, --quiet           Dont't print the results to stdout  
+	Usage: vote_counter.py [options]  
+  
+	Options:  
+ 		-h, --help            show this help message and exit  
+		-f FILE, --file=FILE  The location of the csv file  
+  		-o OUTPUT, --output=OUTPUT  
+                        	  The location of the output file  
+  		-q, --quiet           Dont't print the results to stdout  
 
 
 ### Use of vote_counter.py
