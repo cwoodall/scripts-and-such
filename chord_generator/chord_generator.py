@@ -30,13 +30,19 @@ def generateChord(base_note, mode='major', notes=3):
 			
 	for note in chord:
 		for k, v in note_relation.iteritems():
-			if base_note[1]:
-				if v == note and k[1] == '#':
+			if len(base_note) <= 1:
+				if v is note:
+					if len(k) <= 1:
+						print k
+						break
+					else:
+						print k
+			elif base_note[1]:
+				if v is note and k[1] is '#':
 					print k 
-				if v == note and k[1] == 'b':
+				elif v is note and k[1] is 'b':
 					print k
-			else:
-				if v == note:
+				elif v is note:
 					print k
 		
 def main():
