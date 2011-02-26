@@ -1,14 +1,16 @@
 # Scripts and Such
 
-A collection of scripts which don't necessitate individual repositories
+A collection of scripts which don't necessitate individual repositories. Basically
+just stuff I want to save online and allow people to look at.
 
 ## Vote Counter (vote_counter.py)
 
-**Language:** Python  
+**Language:** Python
+**Folder:** python-dump 
 **Purpose:** To calculate a sorted list of album rankings for 130BPM's year-end
 rankings (and any other ranking).
 **Status:** Done  
-**Version:** 1.0b
+**Version:** 1.0
 
 ### Use of vote_counter.py
 
@@ -21,9 +23,30 @@ rankings (and any other ranking).
                         	  The location of the output file  
   		-q, --quiet           Dont't print the results to stdout  
 
+## MATLAB Dictionary (dictionary.m)
 
-## Sudoku Solver (sudoku_solver.py)
+**Language:** MATLAB
+**Folder:** matlab-dump
+**Purpose:** A basic hash-table/dictionary system for MATLAB which leverages 
+MATLAB's Cell Array's defining a dictionary as a subset of a Cell Array.
+**TODO:** Test code for speed and ability to handle various loads. Also, define a 
+class for it and port the code to MATLAB C++ to make it faster (if necissary).
+**Status:** Proof of Concept
+**Version:** Proof of Concept
 
-**Language:** Python  
-**Purpose:** Solve a sudoku puzzle.  
-**Status:** Not Working 
+### Usage
+
+For usage look at the dictionary_example.m file
+
+## Chord Generator
+
+**Language:** Python
+**Folder:** python-dump 
+**Purpose:** To generate chords based on chord notation...
+**Status:** Currently handles major chords OK, but not well. Needs alot of work.
+**Version:** -
+
+### Usage
+
+None as of now.
+
