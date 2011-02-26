@@ -1,0 +1,29 @@
+desc 'Configure the environment'
+task :default do
+	puts "Configuring ..."
+	mkdir 'bin'
+	cp 'poster.rb', 'bin'
+	cp 'poster_lib.rb', 'bin'
+	cp 'poster', 'bin'
+	chmod 0555, 'bin/poster'
+	puts "Done Configuring..."
+end
+
+desc 'Install program'
+task :install do
+	puts "Installing ..."
+	mv 'bin/poster.rb', '/usr/local/bin/'
+	mv 'bin/poster_lib.rb', '/usr/local/bin/'
+	mv 'bin/poster', '/usr/local/bin/'
+	rmdir 'bin'
+	puts "Done Installing!"
+end
+
+desc 'Uninstall program'
+task :uninstall do
+	puts "Uninstalling ..."
+	rm '/usr/local/bin/poster.rb'
+	rm '/usr/local/bin/poster_lib.rb'
+	rm '/usr/local/bin/poster'
+	puts "Done Uninstalling!"	
+end
