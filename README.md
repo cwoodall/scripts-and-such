@@ -50,3 +50,12 @@ For usage look at the dictionary_example.m file
 
 None as of now.
 
+## Ones In A Bit (ones-in-a-byte/byte_count.py)
+
+**Language:** Python
+**Folder:** python-dump 
+**Purpose:** To count the number of 1s in a byte.
+**Status:** Done and works, need to insert an if __name__ == '__main__' statement
+**Version:** 1
+
+
