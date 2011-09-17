@@ -5,4 +5,3 @@ function out = each( iterator, action )
         out = [out action(i)];
     end
 end
-
