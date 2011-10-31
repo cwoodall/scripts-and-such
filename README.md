@@ -58,4 +58,10 @@ None as of now.
 **Status:** Done and works, need to insert an if __name__ == '__main__' statement  
 **Version:** 1  
 
+## Eulers Method (python-dump/wonky-math/eulers.py)
 
+**Language:** Python
+**Folder:** python-dump/wonky-math
+**Purpose:** Generate tables for eulers method
+**Status:** Mostly works, no frontend just library. Should return values to a list of tuples rather than print strings.
+**Version:** 1b
