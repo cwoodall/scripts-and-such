@@ -10,6 +10,8 @@ module tester_tb();
    reg signed [2:0]	A, B;
 
    initial begin
+	  $dumpvars;
+	  
 	  $display(" A  | B  | GT | LT | EQ ");
 	  
 	  $monitor(" %d | %d | %b | %b | %b ", A, B, GT, LT, EQ);
@@ -41,7 +43,7 @@ module tester_tb();
 	  #10 $finish;
    end // initial begin
 
-   comparator_3bit_b U_Comparator(A, B, GT, LT, EQ);
+   comparator_3bit U_Comparator(A, B, GT, LT, EQ);
 
 endmodule // tester_tb
 

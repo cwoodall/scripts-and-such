@@ -1,0 +1,105 @@
+$date
+	Mon Nov 14 20:42:47 2011
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module grey_code_counter_TEST $end
+$var wire 3 ! count [2:0] $end
+$var reg 1 " clk $end
+$scope module Counter $end
+$var wire 1 # clk $end
+$var reg 3 $ count [2:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 $
+0#
+0"
+b0 !
+$end
+#110
+b1 $
+b1 !
+1"
+1#
+#120
+0"
+0#
+#130
+b11 $
+b11 !
+1"
+1#
+#140
+0"
+0#
+#150
+b10 $
+b10 !
+1"
+1#
+#160
+0"
+0#
+#170
+b110 $
+b110 !
+1"
+1#
+#180
+0"
+0#
+#190
+b111 $
+b111 !
+1"
+1#
+#200
+0"
+0#
+#210
+b101 $
+b101 !
+1"
+1#
+#220
+0"
+0#
+#230
+b100 $
+b100 !
+1"
+1#
+#240
+0"
+0#
+#250
+b0 $
+b0 !
+1"
+1#
+#260
+0"
+0#
+#270
+b1 $
+b1 !
+1"
+1#
+#280
+0"
+0#
+#290
+b11 $
+b11 !
+1"
+1#
+#300
+0"
+0#
